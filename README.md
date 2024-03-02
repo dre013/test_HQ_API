@@ -69,12 +69,12 @@
 
     http://localhost:8000/api/v1/available_products/ - 2* получение продуктов, доступных для покупки, которое бы включает в себя основную информацию о продукте и уроки, которые принадлежат продукту.
 
-    http://localhost:8000/api/v1/login/lessons/product_id/<int:product_id>/ - 3* получение доступных пользователю уроков, где product_id это ID продукта
+    http://localhost:8000/api/v1/login/lessons/product_id/product_id*/ - 3* получение доступных пользователю уроков, где product_id* это ID продукта
     (доступ только у авторизованных пользователей).
 
     http://localhost:8000/api/v1/users_count/ - 1** получение количество учеников занимающихся на киждом из продуктов.
 
-    http://localhost:8000/api/v1/product_statistic/<int:pk>/ - 2** получение процента заполнения групп по проекту, где pk это ID продукта.
+    http://localhost:8000/api/v1/product_statistic/pk*/ - 2** получение процента заполнения групп по проекту, где pk* это ID продукта.
 
     http://localhost:8000/api/v1/purchase_percent/ - 3** получение процента приобретения по каждому из продуктов
 
