@@ -26,7 +26,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         return Response({"error": "На данный момент нет активных продуктов, попробуйте позже!"},
                         status=status.HTTP_404_NOT_FOUND)
 
-    # Функция для получения количества пользователей по продукту
+    # Функция для получения количества пользователей по всем продуктам
     @action(methods=['get'], detail=True)
     def users_count(self, request):
         product_students_count = Products.objects.annotate(
@@ -43,7 +43,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         product_group_fill_percent = product_group_fill_percent.annotate(num_students=Count('user') /
                                                                          Groups_members.objects.filter(product=pk).count() * 100 /
                                                                          F('product__max_users'))
-        data = [{'product_name': item['product'], 'fill_percent': item['num_students']}
+        data = [{'product_id': item['product'], 'fill_percent': item['num_students']}
                 for item in product_group_fill_percent]
         return Response(data)
 

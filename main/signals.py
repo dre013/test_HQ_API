@@ -6,7 +6,7 @@ from django.utils import timezone
 
 from main.models import Groups_members, Products, Users
 
-# Функция для распределения пользователя по группам, при покупке продукта
+# Функция для распределения пользователя по группам(приемник), при покупке продукта
 @receiver(m2m_changed, sender=Users.products.through)
 def buy_products(instance, pk_set, action, **kwargs):
     if action == 'post_add':
