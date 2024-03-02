@@ -22,6 +22,9 @@ urlpatterns = [
     path('', include(router.urls)),
     path('lessons/product_id/<int:product_id>/', lessons_list_in_product, name='lessons_in_product'),
     path('available_products/', views.ProductViewSet.as_view({'get': 'products_with_lessons'}), name='available_products_with_lessons'),
+    path('users_count/', views.ProductViewSet.as_view({'get': 'users_count'}), name='users_count'),
+    path('product_statistic/<int:pk>/', views.ProductViewSet.as_view({'get': 'product_statistics'}), name='product_statistic'),
+    path('purchase_percent/', views.ProductViewSet.as_view({'get': 'purchase_percent'}), name='purchase_percent'),
 ]
 
 urlpatterns += router.urls
